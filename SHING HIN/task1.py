@@ -7,8 +7,9 @@ import requests
 import re
 # Code here - Import BeautifulSoup library
 from bs4 import BeautifulSoup
+import sys
 
-# Code ends here
+
 
 # %%
 # function to get the html source text of the medium article
@@ -63,8 +64,8 @@ def save_file(text):
     fname = f'scraped_articles/{name}.txt'
     
     # Code here - write a file using with (2 lines)
-    f = open(fname, "w")
-    f.write(text)
+    with open(fname, 'w') as file:
+        file.write(text)
     # Code ends here
 
     print(f'File saved in directory {fname}')
@@ -72,6 +73,7 @@ def save_file(text):
 
 if __name__ == '__main__':
     text = collect_text(get_page())
+    # Code ends here
     save_file(text)
     # Instructions to Run this python code
     # Give url as https://medium.com/@subashgandyer/papa-what-is-a-neural-network-c5e5cc427c7
